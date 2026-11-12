@@ -138,6 +138,17 @@ a { color: inherit; }
 .services b { display: block; font-weight: 600; }
 .services span { color: var(--soft); font-size: 14.5px; }
 
+/* smaller projects */
+.grid2 { display: grid; gap: 22px; }
+@media (min-width: 860px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+.grid2 .project { grid-template-columns: 1fr; margin: 0; padding: 24px; align-content: start; }
+.grid2 h3 { font-size: 32px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pair img { width: 100%; aspect-ratio: 9 / 14; object-fit: cover; object-position: top; border-radius: 14px; border: 1px solid var(--line); display: block; }
+.banner { width: 100%; border-radius: 14px; border: 1px solid var(--line); display: block; }
+.team { display: inline-block; margin-left: 8px; padding: 3px 8px; border-radius: 6px; background: var(--chip); color: var(--soft); font: 500 11px/1.3 "Geist Mono", monospace; vertical-align: middle; }
+.note { margin: -8px 0 22px; color: var(--soft); font-size: 15px; max-width: 640px; }
+
 /* stack */
 .stack { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
 @media (min-width: 720px) { .stack { grid-template-columns: repeat(3, 1fr); } }
@@ -170,7 +181,7 @@ a { color: inherit; }
     </div>
   </section>
 
-  <div class="label" id="work"><h2>Selected work</h2><span>04 projects</span></div>
+  <div class="label" id="work"><h2>Selected work</h2><span>own products</span></div>
 
   <article class="project">
     <div class="text">
@@ -250,6 +261,92 @@ a { color: inherit; }
         <li>Publishes to YouTube and Instagram, including portrait cuts for Shorts and Reels; webhooks for outside tools.</li>
       </ul>
       <div class="tags"><span>Laravel</span><span>PHP</span><span>Vue</span><span>TypeScript</span><span>Queues</span><span>YouTube API</span></div>
+    </div>
+  </article>
+
+  <div class="label" id="more"><h2>More I've built</h2><span>05 — 06</span></div>
+  <div class="grid2">
+    <article class="project">
+      <div class="text">
+        <span class="num">05 — Browser game · in development</span>
+        <h3>DEMOLISH</h3>
+        <p class="one">A structural demolition puzzle for phones: study the building, find the members carrying the load, pick your tools, set the fuses and strike.</p>
+        <ul>
+          <li>Foundation in place: event bus, store and reducer, router, a save system with migrations and backups, and a custom layout engine with its own UI kit — no DOM UI.</li>
+          <li>Levels are JSON files validated by a schema; the first is a real three-storey RC frame.</li>
+          <li>A Unity version is in progress alongside the browser build.</li>
+        </ul>
+        <div class="tags"><span>Phaser 4</span><span>TypeScript</span><span>Vite</span><span>Unity</span></div>
+      </div>
+      <div class="pair">
+        <img src="img/demolish-plan.webp" alt="DEMOLISH planning screen concept" loading="lazy">
+        <img src="img/demolish-result.webp" alt="DEMOLISH result screen concept" loading="lazy">
+      </div>
+      <span class="status">Screens shown are concept art.</span>
+    </article>
+    <article class="project">
+      <div class="text">
+        <span class="num">06 — Website · 3D</span>
+        <h3>NEXUS Silicon</h3>
+        <p class="one">A futuristic website for a fictional chip company, with a live 3D chip in the hero.</p>
+        <ul>
+          <li>Product catalogue, industries, manufacturing, R&amp;D, careers and contact pages, plus an admin panel UI.</li>
+          <li>Runs fully offline: content comes from local mock data, forms validate locally and the chat assistant is a rule-based stub.</li>
+          <li>Light and dark themes, motion with Framer Motion, 3D with React Three Fiber.</li>
+        </ul>
+        <div class="tags"><span>Next.js 15</span><span>React 19</span><span>Tailwind v4</span><span>Three.js</span><span>R3F</span></div>
+      </div>
+      <img class="banner" src="img/nexus.webp" alt="NEXUS Silicon home page with a 3D chip" loading="lazy">
+    </article>
+  </div>
+
+  <div class="label" id="team"><h2>Team &amp; client work</h2><span>07 — 09</span></div>
+  <p class="note">Projects I've worked on as part of a team. The code belongs to the teams and clients involved.</p>
+  <div class="grid2">
+    <article class="project">
+      <div class="text">
+        <span class="num">07 — Multiplayer card game</span>
+        <h3>Surri</h3>
+        <p class="one">A real-time, four-player Indian trick-taking game — a Spades variant with its own bidding, trump selection and TRAM / Dhaap calls.</p>
+        <ul>
+          <li>Node.js + socket.io server keeps every room in memory; bots evaluate hands, bid and play cards.</li>
+          <li>Headless integration test connects one human and three bots and plays full games.</li>
+          <li>Web client behind Nginx, packaged for Android.</li>
+        </ul>
+        <div class="tags"><span>Node.js</span><span>socket.io</span><span>Vite</span><span>Nginx</span><span>Android</span></div>
+      </div>
+      <img class="banner" src="img/surri.webp" alt="Surri — Indian card game" loading="lazy">
+    </article>
+    <article class="project">
+      <div class="text">
+        <span class="num">08 — Mobile game</span>
+        <h3>Snake Haul</h3>
+        <p class="one">Drag a growing tail of balls around the field and cash it in — the more you carry, the heavier you steer.</p>
+        <ul>
+          <li>Built for low-end Android: a hard 40 MB build budget enforced in CI and 30 fps on 2 GB phones.</li>
+          <li>Started as a single-file prototype that had to pass a playtest bar before the Unity build began.</li>
+          <li>Firebase Remote Config for tuning and cohorts.</li>
+        </ul>
+        <div class="tags"><span>Unity 6</span><span>C#</span><span>Firebase</span><span>Android</span></div>
+      </div>
+      <div class="pair">
+        <img src="img/haul-home.webp" alt="Snake Haul home screen" loading="lazy">
+        <img src="img/haul-play.webp" alt="Snake Haul gameplay" loading="lazy">
+      </div>
+    </article>
+  </div>
+  <article class="project solo" style="margin-top:22px">
+    <div class="text">
+      <span class="num">09 — SaaS platform · Crackle</span>
+      <h3>Crackle Orchestrator</h3>
+      <p class="one">A multi-tenant platform that takes one campaign defined by the customer and runs it across Google Ads and Facebook at the same time.</p>
+      <ul>
+        <li>Laravel 12 with a Vue / Inertia front end and Horizon-managed queues.</li>
+        <li>Column-based multi-tenancy, role permissions and an approval workflow on every change.</li>
+        <li>Tenant secrets wrapped in a key-management layer; every PR passes Pest tests, Pint and PHPStan level 8.</li>
+        <li>Shipped in sprints with live customers, feedback triaged straight into the next sprint.</li>
+      </ul>
+      <div class="tags"><span>Laravel 12</span><span>Vue</span><span>Inertia</span><span>Horizon</span><span>Google Ads API</span><span>Meta Marketing API</span><span>Docker</span></div>
     </div>
   </article>
 
