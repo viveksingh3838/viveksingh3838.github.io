@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vivek Singh — Full-stack & mobile developer</title>
+<meta name="description" content="Vivek Singh builds web apps, Android apps and multiplayer games — Seep, Jaap, Tiny Track Rivals and FacelessTube.">
+<meta property="og:title" content="Vivek Singh — Full-stack & mobile developer">
+<meta property="og:description" content="Web apps, Android apps and multiplayer games, from the server to the store listing.">
+<meta property="og:image" content="https://viveksingh3838.github.io/img/ttr-feature.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #F3EEE5;
+  --card: #FBF8F2;
+  --ink: #1D1A17;
+  --soft: #5E574F;
+  --faint: #8C8379;
+  --line: #DDD4C6;
+  --accent: #C4532F;
+  --accent-ink: #FFF6EF;
+  --chip: #EAE2D4;
+  --shadow: 0 1px 0 rgba(29, 26, 23, .04), 0 12px 32px -18px rgba(29, 26, 23, .28);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #161412;
+    --card: #1F1C19;
+    --ink: #F1EBE2;
+    --soft: #B9B0A4;
+    --faint: #8E857A;
+    --line: #34302B;
+    --accent: #E7774F;
+    --accent-ink: #1A0F0A;
+    --chip: #2A2622;
+    --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 14px 36px -20px rgba(0, 0, 0, .7);
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 16px/1.6 "Geist", system-ui, sans-serif;
+}
+a { color: inherit; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+@media (min-width: 720px) { .wrap { padding: 0 32px; } }
+
+/* header */
+.top { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; font: 500 13px/1 "Geist Mono", monospace; color: var(--soft); }
+.top nav { display: flex; gap: 18px; }
+.top a { text-decoration: none; }
+.top a:hover { color: var(--accent); }
+
+.hero { padding: 48px 0 56px; border-bottom: 1px solid var(--line); }
+.hero h1 {
+  margin: 0;
+  font: 400 clamp(48px, 11vw, 112px)/.95 "Instrument Serif", Georgia, serif;
+  letter-spacing: -.01em;
+}
+.hero h1 em { color: var(--accent); }
+.hero .role { margin: 18px 0 0; font: 500 15px/1.4 "Geist Mono", monospace; color: var(--soft); }
+.hero p.lede { max-width: 620px; margin: 22px 0 0; font-size: 19px; line-height: 1.55; color: var(--ink); }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 16px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card);
+  font-weight: 600; font-size: 14.5px; text-decoration: none;
+}
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.btn:hover { transform: translateY(-1px); }
+.btn svg { width: 16px; height: 16px; }
+
+/* sections */
+.label { display: flex; align-items: baseline; gap: 12px; margin: 64px 0 24px; }
+.label h2 { margin: 0; font: 400 34px/1 "Instrument Serif", Georgia, serif; }
+.label span { font: 500 12.5px/1 "Geist Mono", monospace; color: var(--faint); }
+
+/* projects */
+.project {
+  display: grid; gap: 28px;
+  padding: 24px; margin-bottom: 22px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+@media (min-width: 860px) {
+  .project { grid-template-columns: 1fr 1.05fr; padding: 36px; align-items: center; }
+  .project.flip .text { order: 2; }
+}
+.num { font: 500 12.5px/1 "Geist Mono", monospace; color: var(--accent); }
+.project h3 { margin: 10px 0 6px; font: 400 40px/1.05 "Instrument Serif", Georgia, serif; }
+.project .one { margin: 0; font-size: 17px; color: var(--soft); }
+.project ul { margin: 18px 0 0; padding: 0; list-style: none; }
+.project li { position: relative; padding: 7px 0 7px 22px; border-top: 1px dashed var(--line); font-size: 15px; }
+.project li:first-child { border-top: 0; }
+.project li::before { content: ""; position: absolute; left: 2px; top: 16px; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); transform: rotate(45deg); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.tags span { padding: 5px 9px; border-radius: 7px; background: var(--chip); font: 500 12px/1 "Geist Mono", monospace; color: var(--soft); }
+.status { display: inline-block; margin-top: 16px; font: 500 12.5px/1 "Geist Mono", monospace; color: var(--faint); }
+
+.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; align-items: end; }
+.shots img {
+  width: 100%; aspect-ratio: 9 / 19; object-fit: cover; object-position: top;
+  border-radius: 16px; border: 1px solid var(--line); background: var(--chip);
+  display: block;
+}
+.shots img:nth-child(2) { transform: translateY(-14px); }
+@media (min-width: 860px) { .project.solo { grid-template-columns: 1fr; } }
+.wide img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); display: block; margin-bottom: 10px; }
+
+.mini { display: grid; gap: 22px; }
+@media (min-width: 860px) { .mini { grid-template-columns: 1fr 1fr; } }
+.mini .project { grid-template-columns: 1fr; margin: 0; }
+
+/* stack */
+.stack { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+@media (min-width: 720px) { .stack { grid-template-columns: repeat(3, 1fr); } }
+.stack div { background: var(--card); padding: 20px 22px; }
+.stack h4 { margin: 0 0 8px; font: 500 12.5px/1 "Geist Mono", monospace; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
+.stack p { margin: 0; font-size: 15px; color: var(--ink); }
+
+/* contact */
+.contact { margin: 72px 0 0; padding: 40px 0 56px; border-top: 1px solid var(--line); }
+.contact h2 { margin: 0; font: 400 clamp(36px, 7vw, 64px)/1 "Instrument Serif", Georgia, serif; }
+.contact h2 em { color: var(--accent); }
+.foot { padding: 0 0 36px; font: 400 12.5px/1.5 "Geist Mono", monospace; color: var(--faint); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span>vivek singh</span>
+    <nav><a href="#work">work</a><a href="#stack">stack</a><a href="#contact">contact</a></nav>
+  </header>
+
+  <section class="hero">
+    <h1>Vivek Singh<br><em>builds things</em> people use daily.</h1>
+    <p class="role">Full-stack &amp; mobile developer · India</p>
+    <p class="lede">I make web apps, Android apps and multiplayer games — the server, the client, the store listing and everything between. Below are the things I've been building lately.</p>
+    <div class="links">
+      <a class="btn primary" href="mailto:viveksingh3838@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email me</a>
+      <!--LINKEDIN-->
+      <a class="btn" href="https://github.com/viveksingh3838"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>GitHub</a>
+    </div>
+  </section>
+
+  <div class="label" id="work"><h2>Selected work</h2><span>04 projects</span></div>
+
+  <article class="project">
+    <div class="text">
+      <span class="num">01 — Android app</span>
+      <h3>Jaap</h3>
+      <p class="one">A devotional companion for daily mantra jaap, panchang and vrat — in ten Indian languages.</p>
+      <ul>
+        <li>Tap or voice counting: the phone listens for the mantra and counts it, using on-device speech recognition.</li>
+        <li>Panchang worked out on the phone from astronomical formulas — tithi, nakshatra, sunrise, Rahu kaal, Ekadashi paaran.</li>
+        <li>Janam kundli with North and South Indian charts, Vimshottari dasha, kundli milan (36 gunas) and a vivah muhurat finder.</li>
+        <li>146 vrat kathas, regional festival calendars, a home-screen widget and reminders. 180+ automated tests.</li>
+      </ul>
+      <div class="tags"><span>React Native</span><span>Expo</span><span>TypeScript</span><span>astronomy-engine</span><span>Android widgets</span></div>
+    </div>
+    <div class="shots">
+      <img src="img/jaap-home.webp" alt="Jaap home screen with the deity of the day" loading="lazy">
+      <img src="img/jaap-counter.webp" alt="Jaap mala counter" loading="lazy">
+      <img src="img/jaap-milan.webp" alt="Kundli milan score of 18.5 out of 36" loading="lazy">
+    </div>
+  </article>
+
+  <article class="project flip">
+    <div class="text">
+      <span class="num">02 — Multiplayer game</span>
+      <h3>Seep</h3>
+      <p class="one">Real-time online version of Seep (Sweep), the Indian fishing card game, for two players.</p>
+      <ul>
+        <li>Server-authoritative: the game engine is pure, immutable functions; clients only send moves and get filtered state back.</li>
+        <li>Rooms and matchmaking over socket.io, with bots at four levels — from random play to a tuned heuristic strategy.</li>
+        <li>Every state change is logged as JSONL to train a neural-network bot.</li>
+        <li>Shipped to Android with Capacitor; deploys through GitHub Actions to EC2 with PM2.</li>
+      </ul>
+      <div class="tags"><span>React</span><span>Vite</span><span>Node.js</span><span>socket.io</span><span>Capacitor</span><span>Vitest</span></div>
+    </div>
+    <div class="shots">
+      <img src="img/seep-lobby.webp" alt="Seep lobby screen" loading="lazy">
+      <img src="img/seep-board.webp" alt="Seep game board with houses and chat" loading="lazy">
+      <img src="img/seep-over.webp" alt="Seep match over screen" loading="lazy">
+    </div>
+  </article>
+
+  <article class="project">
+    <div class="text">
+      <span class="num">03 — Mobile game</span>
+      <h3>Tiny Track Rivals</h3>
+      <p class="one">A portrait arcade kart racer for Android, built in Unity 6.</p>
+      <ul>
+        <li>Story campaign across eight worlds with rival duels and boss races.</li>
+        <li>Combat powers (rockets, magnet, side-step), drift and boost, and a garage of hand-picked cars.</li>
+        <li>City tracks with flyovers, tunnels and bridges, tuned for phones with URP.</li>
+      </ul>
+      <div class="tags"><span>Unity 6</span><span>C#</span><span>URP</span><span>Blender</span><span>Python tooling</span></div>
+    </div>
+    <div class="shots">
+      <img src="img/ttr-home.webp" alt="Tiny Track Rivals home screen" loading="lazy">
+      <img src="img/ttr-race.webp" alt="Tiny Track Rivals race in a seaside town" loading="lazy">
+      <img src="img/ttr-map.webp" alt="Tiny Track Rivals world map" loading="lazy">
+    </div>
+  </article>
+
+  <article class="project solo">
+    <div class="text">
+      <span class="num">04 — Web platform</span>
+      <h3>FacelessTube</h3>
+      <p class="one">An AI-powered platform that automates faceless YouTube channels.</p>
+      <div class="tags"><span>Laravel</span><span>PHP</span><span>Vue</span><span>TypeScript</span></div>
+    </div>
+  </article>
+
+  <div class="label" id="stack"><h2>Stack</h2><span>what I reach for</span></div>
+  <div class="stack">
+    <div><h4>Frontend</h4><p>React, TypeScript, Vite, Vue, mobile-first CSS</p></div>
+    <div><h4>Mobile</h4><p>React Native + Expo, Capacitor, Android builds and Play Store releases</p></div>
+    <div><h4>Backend</h4><p>Node.js, Express, socket.io, Laravel / PHP</p></div>
+    <div><h4>Games</h4><p>Unity 6, C#, URP; real-time multiplayer game servers</p></div>
+    <div><h4>DevOps</h4><p>GitHub Actions, AWS EC2, PM2, Docker, Nginx</p></div>
+    <div><h4>Also</h4><p>Python for bots and tooling, Vitest, on-device astronomy maths</p></div>
+  </div>
+
+  <section class="contact" id="contact">
+    <h2>Have an app or game<br><em>in mind?</em></h2>
+    <div class="links">
+      <a class="btn primary" href="mailto:viveksingh3838@gmail.com">viveksingh3838@gmail.com</a>
+      <!--LINKEDIN2-->
+    </div>
+  </section>
+  <footer class="foot">© 2026 Vivek Singh · Source code for these projects is private; happy to walk through it on a call.</footer>
+</div>
+</body>
+</html>
