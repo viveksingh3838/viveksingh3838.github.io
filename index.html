@@ -117,6 +117,27 @@ a { color: inherit; }
 @media (min-width: 860px) { .mini { grid-template-columns: 1fr 1fr; } }
 .mini .project { grid-template-columns: 1fr; margin: 0; }
 
+/* numbers */
+.stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.stats b { display: inline-flex; align-items: baseline; gap: 6px; padding: 8px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--paper); font: 400 26px/1 "Instrument Serif", Georgia, serif; }
+.stats b small { font: 500 11.5px/1.2 "Geist Mono", monospace; color: var(--soft); }
+
+/* pipeline */
+.pipe { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 20px 0 4px; }
+.pipe span { padding: 9px 12px; border-radius: 10px; background: var(--paper); border: 1px solid var(--line); font: 500 13px/1 "Geist Mono", monospace; }
+.pipe span.hot { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.pipe i { font-style: normal; color: var(--faint); }
+
+/* about + services */
+.about { display: grid; gap: 22px; }
+@media (min-width: 860px) { .about { grid-template-columns: 1.2fr 1fr; gap: 48px; } }
+.about p { margin: 0 0 14px; font-size: 17px; }
+.about p:last-child { margin: 0; }
+.services { display: grid; gap: 10px; align-content: start; }
+.services div { padding: 14px 16px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); }
+.services b { display: block; font-weight: 600; }
+.services span { color: var(--soft); font-size: 14.5px; }
+
 /* stack */
 .stack { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
 @media (min-width: 720px) { .stack { grid-template-columns: repeat(3, 1fr); } }
@@ -135,7 +156,7 @@ a { color: inherit; }
 <div class="wrap">
   <header class="top">
     <span>vivek singh</span>
-    <nav><a href="#work">work</a><a href="#stack">stack</a><a href="#contact">contact</a></nav>
+    <nav><a href="#work">work</a><a href="#about">about</a><a href="#stack">stack</a><a href="#contact">contact</a></nav>
   </header>
 
   <section class="hero">
@@ -162,6 +183,7 @@ a { color: inherit; }
         <li>Janam kundli with North and South Indian charts, Vimshottari dasha, kundli milan (36 gunas) and a vivah muhurat finder.</li>
         <li>146 vrat kathas, regional festival calendars, a home-screen widget and reminders. 180+ automated tests.</li>
       </ul>
+      <div class="stats"><b>10<small>Indian<br>languages</small></b><b>146<small>vrat<br>kathas</small></b><b>183<small>automated<br>tests</small></b></div>
       <div class="tags"><span>React Native</span><span>Expo</span><span>TypeScript</span><span>astronomy-engine</span><span>Android widgets</span></div>
     </div>
     <div class="shots">
@@ -182,6 +204,7 @@ a { color: inherit; }
         <li>Every state change is logged as JSONL to train a neural-network bot.</li>
         <li>Shipped to Android with Capacitor; deploys through GitHub Actions to EC2 with PM2.</li>
       </ul>
+      <div class="stats"><b>4<small>bot<br>levels</small></b><b>2<small>players,<br>real time</small></b><b>100<small>points<br>per game</small></b></div>
       <div class="tags"><span>React</span><span>Vite</span><span>Node.js</span><span>socket.io</span><span>Capacitor</span><span>Vitest</span></div>
     </div>
     <div class="shots">
@@ -200,7 +223,9 @@ a { color: inherit; }
         <li>Story campaign across eight worlds with rival duels and boss races.</li>
         <li>Combat powers (rockets, magnet, side-step), drift and boost, and a garage of hand-picked cars.</li>
         <li>City tracks with flyovers, tunnels and bridges, tuned for phones with URP.</li>
+        <li>Game rules live in a pure C# layer with no engine code, so a test suite checks every level and bots can race whole worlds headless.</li>
       </ul>
+      <div class="stats"><b>960<small>levels,<br>all validated</small></b><b>8<small>worlds</small></b><b>3<small>bot skill<br>profiles</small></b></div>
       <div class="tags"><span>Unity 6</span><span>C#</span><span>URP</span><span>Blender</span><span>Python tooling</span></div>
     </div>
     <div class="shots">
@@ -212,12 +237,36 @@ a { color: inherit; }
 
   <article class="project solo">
     <div class="text">
-      <span class="num">04 — Web platform</span>
+      <span class="num">04 — Web platform · AI automation</span>
       <h3>FacelessTube</h3>
-      <p class="one">An AI-powered platform that automates faceless YouTube channels.</p>
-      <div class="tags"><span>Laravel</span><span>PHP</span><span>Vue</span><span>TypeScript</span></div>
+      <p class="one">A platform that runs faceless YouTube and Instagram channels end to end — from picking a topic to publishing the video.</p>
+      <div class="pipe" aria-label="Video pipeline">
+        <span>Topic</span><i>→</i><span>Script</span><i>→</i><span>Voiceover</span><i>→</i><span>Stock media</span><i>→</i><span>Subtitles</span><i>→</i><span>Thumbnail</span><i>→</i><span>Assemble</span><i>→</i><span class="hot">Upload</span>
+      </div>
+      <ul>
+        <li>Every step is a queued background job with automatic retries, so a channel keeps publishing without anyone watching it.</li>
+        <li>Content strategy and a content calendar per channel, with brand settings, style presets and a reusable asset library.</li>
+        <li>A/B tests for titles and thumbnails, YouTube analytics sync and a quality score on every video before it goes out.</li>
+        <li>Publishes to YouTube and Instagram, including portrait cuts for Shorts and Reels; webhooks for outside tools.</li>
+      </ul>
+      <div class="tags"><span>Laravel</span><span>PHP</span><span>Vue</span><span>TypeScript</span><span>Queues</span><span>YouTube API</span></div>
     </div>
   </article>
+
+  <div class="label" id="about"><h2>How I work</h2><span>about</span></div>
+  <div class="about">
+    <div>
+      <p>I like owning a product from the first sketch to the store listing: the game rules or business logic, the server, the app, the build pipeline and the release.</p>
+      <p>I keep the core logic pure and well tested — a card engine as immutable functions, a racing game's rules in plain C#, a panchang worked out from astronomy formulas — so the screens on top can change fast without breaking anything.</p>
+      <p>A lot of what I build is for Indian users — in their own languages, on ordinary Android phones.</p>
+    </div>
+    <div class="services">
+      <div><b>Android apps</b><span>React Native / Expo or Capacitor, widgets, notifications, Play Store releases</span></div>
+      <div><b>Multiplayer games</b><span>Real-time servers with socket.io, bots, matchmaking</span></div>
+      <div><b>Mobile games in Unity</b><span>Gameplay, level systems, tooling and builds</span></div>
+      <div><b>Web platforms &amp; automation</b><span>Laravel or Node back ends, job pipelines, AI content workflows</span></div>
+    </div>
+  </div>
 
   <div class="label" id="stack"><h2>Stack</h2><span>what I reach for</span></div>
   <div class="stack">
